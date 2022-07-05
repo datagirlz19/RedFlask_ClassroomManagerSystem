@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        td, th {
+                border: 1px solid  whitesmoke;
+                padding: 0.5rem;
+            }
+        body{
+            text-align: center;
+            margin: auto;
+            padding: 5%;
+            background-color:tomato;
+        }
+        table{
+            width: 100%;
+            background-color: whitesmoke;
+            
+        }
+
+        /* style the container */
+        .container {
+        position: relative;
+        border-radius: 5px;
+        background-color: blanchedalmond;
+        padding: 20px 0 30px 0;
+        }
+
+        input,
+        .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+        background-color: blanchedalmond;
+        }
+
+        input:hover,
+        .btn:hover {
+            opacity: 1;
+            background-color:firebrick;
+        }
+    </style>
+
+    <h1>Please click on the student to see his assignment and grades!</h1>
+    <form action="/students_asgn_prof" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name of Student</th>
+                    <th>Student's ID</th>
+                    <th>Checkbox</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student['name'] }}</td>
+                    <td>{{ student['ID'] }}</td>
+                    <td>
+                        <input type="checkbox" name="student_ID" value={{ student['ID'] }}>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="see student">
+    </form>
+
+{% endblock %}

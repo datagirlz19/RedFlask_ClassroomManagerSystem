@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        body{
+            text-align: center;
+            margin: auto;
+            padding: 5%;
+            background-color:tomato;
+        }
+        * {box-sizing: border-box}
+
+        /* style the container */
+        .container {
+        position: relative;
+        border-radius: 5px;
+        background-color: blanchedalmond;
+        padding: 20px 0 30px 0;
+        }
+
+        /* style inputs and link buttons */
+        input,
+        .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+        }
+
+        input:hover,
+        .btn:hover {
+            opacity: 1;
+        }
+
+        a {
+        transition-duration: 0.4s;
+        }
+
+        a:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <h2>Register</h2>
+    <p>Please fill this form to create an account</p>
+    <form action="/add_user" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="name" type="text" required>
+        <br>
+        <p>If you are a student enter your ID as S-(numbers in you ID card).</p>
+        <p>If you are a professor enter your ID as P-(numbers in your ID card)</p>
+        <input autocomplete="off" autofocus name="id" placeholder="id" type="text" required>
+        <br>
+        <br>
+        <input autocomplete="off" autofocus name="email" placeholder="email" type="text" required>
+        <br>
+        <br>
+        <input autocomplete="off" autofocus name="password" placeholder="password" type="password" required>
+        <input style = "background-color:blanchedalmond;" type="submit" value="Sign Up">
+        <p>Already have an account? <a href="/login">Login here</a>.</p>
+    </form>
+{% endblock %}

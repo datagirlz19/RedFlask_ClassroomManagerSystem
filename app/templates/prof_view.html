@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+    body{
+        text-align: center;
+        margin: auto;
+        padding: 5%;
+        background-color:tomato;
+        color: blanchedalmond;
+    }
+
+    a {
+        transition-duration: 0.4s;
+        background-color:wheat;
+        color:black;
+    }
+
+    a:hover {
+        background-color: crimson;
+        color: white;
+    }
+
+</style>
+<div>
+<h2>Please choose what you want to acces.</h2>
+    <p>Please choose what you want to acces.</p>
+    <a href="/studentlist">Student list</a>
+    <br><br>
+    <a href="/addassignment">Add assignment</a>
+</div>
+{% endblock %}

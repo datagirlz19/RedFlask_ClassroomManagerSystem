@@ -1,0 +1,4 @@
+flask
+pytest
+mysql-connector-python
+python-dotenv

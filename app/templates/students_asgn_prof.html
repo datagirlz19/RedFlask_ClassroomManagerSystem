@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+        td, th {
+                border: 1px solid  whitesmoke;
+                padding: 0.5rem;
+            }
+        body{
+            text-align: center;
+            margin: auto;
+            padding: 5%;
+            background-color:tomato;
+        }
+        table{
+            width: 100%;
+            background-color: whitesmoke;
+            
+        }
+
+        /* style the container */
+        .container {
+        position: relative;
+        border-radius: 5px;
+        background-color: blanchedalmond;
+        padding: 20px 0 30px 0;
+        }
+
+        input,
+        .btn {
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+        background-color: whitesmoke;
+        }
+
+        input:hover,
+        .btn:hover {
+            opacity: 1;
+            background-color:firebrick;
+        }
+
+        td, th {
+                border: 1px solid #999;
+                padding: 0.5rem;
+            }
+        body{
+            text-align: center;
+            margin: auto;
+            padding: 5%;
+        }
+        table{
+            width: 100%;
+            
+        }
+        a {
+    transition-duration: 0.4s;
+        }
+
+        a:hover {
+            background-color: black;
+            color: white;
+        }
+</style>
+<h1>Please check the assignment you want to add a grade or feedback for!</h1>
+    <form action="/addgr_fb" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Grade</th>
+                    <th>Professor's Feedback</th>
+                    <th>Student's Response</th>
+                    <th>Checkbox</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignment_list %}
+                {% for grade in grades %}
+                {% if grade["assignment_ID"] == assignment['assignment_ID'] %}
+                <tr>
+                    <td>{{ assignment['assignment_ID'] }}</td>
+                    <td>{{ grade['grade'] }}</td>
+                    <td>{{ assignment['professor_feedback'] }}</td>
+                    <td>{{ assignment['student_response'] }}</td>
+                    <td>
+                        <input type="checkbox" name="assignment_ID" value={{ assignment['assignment_ID'] }}>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <br>
+
+        <fieldset text-align: center>
+            <legend> Select a student to give a grade & feedback </legend>
+            </br>
+            Grade: <input autocomplete="off" autofocus name="grade" placeholder="grade out of 100" type="text"> %
+            Feedback: <input autocomplete="off" autofocus name="feedback" placeholder="feedback" type="text">
+            <input type="submit" style = "background-color:blanchedalmond;" value="Enter Grade & Feedback">
+        </fieldset>
+        <br> 
+    </form>
+    <a href="/logout">Logout</a> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/addassignment">Add assignment</a>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+            body{
+                text-align: center;
+                margin: auto;
+                padding: 5%;
+                background-color:tomato;
+            }
+            * {box-sizing: border-box}
+
+            /* style the container */
+            .container {
+            position: relative;
+            border-radius: 5px;
+            background-color: blanchedalmond;
+            padding: 20px 0 30px 0;
+            }
+
+            /* style inputs and link buttons */
+            input,
+            .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 20px;
+            text-decoration: none; /* remove underline from anchors */
+            }
+
+            input:hover,
+            .btn:hover {
+            opacity: 1;
+            }
+    </style>
+    
+    <h1>Log In</h1>
+    <form action="/check_credential" method="post">
+        <input autocomplete="off" autofocus name="email" placeholder="email" type="text">
+        <br>
+        <input autocomplete="off" autofocus name="password" placeholder="password" type="password">
+        <button type="submit"> Log in</button>
+        <p>Don't have an account? <a href="/signup">Sign Up here</a>.</p>
+    </form>
+{% endblock %}

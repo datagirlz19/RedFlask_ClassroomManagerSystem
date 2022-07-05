@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <style>
+         body{
+        text-align: center;
+        margin: auto;
+        padding: 5%;
+        background-color:tomato;
+        }
+        * {box-sizing: border-box}
+        a {
+            transition-duration: 0.4s;
+            background-color:wheat;
+            color:black;
+        }
+
+        a:hover {
+            background-color: crimson;
+            color: white;
+        }
+        </style>
+
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/task-style.css') }}">
+    </head>
+    <body>
+        <!-- Jinja templating code that we can redefine for other pages -->
+        {% block body %}{% endblock %}
+    </body>
+</html>
